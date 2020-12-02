@@ -1,20 +1,15 @@
-# TypeScript + Node.js Starter
+# Lute
 
-Personal TypeScript + Node.js project scaffold.
+RYM + Spotify integration experiment.
 
-## Overview
+## Goals
 
-- Typescript 4.1
-- Purify
-- Jest + Jest Extended
-- Prettier
-- ESLint + Curated Extensions:
-  - @typescript-eslint
-  - eslint-plugin-unicorn
-  - eslint-plugin-jest
-  - eslint-plugin-jest-formatting
-  - eslint-plugin-import
-  - eslint-config-prettier
+- Be able to fetch & store corresponding rym data, if exists, for any artist/album/single on spotify.
+- Be able to analyze trends based on rym data for any spotify user's library.
+
+## Limitations
+
+- RYM ratelimiting mechanism
 
 ## Commands
 
