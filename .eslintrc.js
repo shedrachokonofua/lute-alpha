@@ -7,6 +7,7 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: ["tsconfig.json"],
+    ecmaVersion: 2020,
   },
   plugins: [
     "@typescript-eslint",
@@ -43,5 +44,7 @@ module.exports = {
       "error",
       { ignores: ["modules"] },
     ],
+    "node/no-missing-import": 0, // Work around for https://github.com/mysticatea/eslint-plugin-node/issues/248
+    "unicorn/no-reduce": 0,
   },
 };

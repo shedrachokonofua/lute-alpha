@@ -1,15 +1,18 @@
 {
-  "name": "ts-node-starter",
+  "name": "lute",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=14.15.0"
+  },
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node ./src",
+    "dev": "ts-node -r dotenv/config ./src",
     "lint": "esprint check",
     "lint:fix": "esprint check --fix",
     "lint:watch": "esprint --fix",
-    "start": "ts-node ./build",
+    "start": "node -r dotenv/config ./build",
     "test": "jest --coverage"
   },
   "author": "Shedrach Okonofua",
@@ -17,8 +20,10 @@
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
     "@types/jest": "^26.0.16",
+    "@types/spotify-web-api-node": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
@@ -47,6 +52,7 @@
     "*.{js,ts,css,md}": "prettier --write"
   },
   "dependencies": {
-    "purify": "^3.4.0"
+    "purify-ts": "^0.16.1",
+    "spotify-api.js": "^5.0.3"
   }
 }
