@@ -1,1 +1,1 @@
-export * from "./spotify-sdk";
+export * from "./spotify-client";

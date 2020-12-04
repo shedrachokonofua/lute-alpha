@@ -21,6 +21,7 @@
     "@tsconfig/recommended": "^1.0.1",
     "@types/jest": "^26.0.16",
     "@types/spotify-web-api-node": "^4.0.2",
+    "@types/x-ray": "^2.3.3",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
     "dotenv": "^8.2.0",
@@ -52,7 +53,9 @@
     "*.{js,ts,css,md}": "prettier --write"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "purify-ts": "^0.16.1",
-    "spotify-api.js": "^5.0.3"
+    "spotify-api.js": "^5.0.3",
+    "x-ray": "^2.3.4"
   }
 }

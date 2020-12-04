@@ -3,7 +3,7 @@ import Spotify, { Client } from "spotify-api.js";
 
 const Auth = new Spotify.Auth();
 
-export class SpotifySDK {
+export class SpotifyClient {
   private readonly client: Client;
 
   private constructor(client: Client) {
@@ -13,17 +13,16 @@ export class SpotifySDK {
   static async create(
     clientId: string,
     clientSecret: string
-  ): Promise<Either<string, SpotifySDK>> {
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    return EitherAsync<Error, String>(() =>
+  ): Promise<Either<string, SpotifyClient>> {
+    return EitherAsync<Error, string>(() =>
       Auth.get({
         client_id: clientId,
         client_secret: clientSecret,
-      })
+      }).then(String)
     )
       .mapLeft((error) => `Spotify auth failed: ${error.message}`)
       .ifRight((token) => console.log(token))
-      .map((token) => new Client(String(token)))
-      .map((client) => new SpotifySDK(client));
+      .map((token) => new Client(token))
+      .map((client) => new SpotifyClient(client));
   }
 }

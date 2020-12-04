@@ -1,17 +1,7 @@
-import { Either, Left, Right, Codec, GetType } from "purify-ts";
+import { Either, Codec, GetType } from "purify-ts";
+import { nonEmptyString } from "./helpers/codecs";
 
-const isNonEmptyString = (text: unknown) =>
-  typeof text === "string" && text.trim() !== "";
-
-const nonEmptyString = Codec.custom<string>({
-  decode: (value) =>
-    isNonEmptyString(value)
-      ? Right(value as string)
-      : Left("Value must non empty string"),
-  encode: (value) => value,
-});
-
-export const ConfigCodec = Codec.interface({
+const ConfigCodec = Codec.interface({
   spotifyClientId: nonEmptyString,
   spotifyClientSecret: nonEmptyString,
 });
