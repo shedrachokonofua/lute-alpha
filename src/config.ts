@@ -1,9 +1,9 @@
 import { Either, Codec, GetType } from "purify-ts";
-import { nonEmptyString } from "./helpers/codecs";
+import { NonEmptyString } from "purify-ts-extra-codec";
 
 const ConfigCodec = Codec.interface({
-  spotifyClientId: nonEmptyString,
-  spotifyClientSecret: nonEmptyString,
+  spotifyClientId: NonEmptyString,
+  spotifyClientSecret: NonEmptyString,
 });
 
 export type Config = GetType<typeof ConfigCodec>;

@@ -55,6 +55,7 @@
   "dependencies": {
     "axios": "^0.21.0",
     "purify-ts": "^0.16.1",
+    "purify-ts-extra-codec": "^0.4.0",
     "spotify-api.js": "^5.0.3",
     "x-ray": "^2.3.4"
   }

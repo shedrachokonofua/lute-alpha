@@ -30,7 +30,7 @@ const RYMUrl = {
 export interface RYMBrowser {
   request(
     path: string,
-    queryParameters: Record<string, string>
+    queryParameters?: Record<string, string>
   ): EitherAsync<Error, string>;
   search(type: RYMSearchType, query: string): EitherAsync<Error, string>;
 }
@@ -38,9 +38,11 @@ export interface RYMBrowser {
 export class AxiosRYMBrowser implements RYMBrowser {
   request(
     path: string,
-    queryParameters: Record<string, string>
+    queryParameters: Record<string, string> = {}
   ): EitherAsync<Error, string> {
-    return EitherAsync(() => axios.get(buildRymUrl(path, queryParameters)));
+    return EitherAsync<Error, AxiosResponse<string>>(() =>
+      axios.get(buildRymUrl(path, queryParameters))
+    ).map(({ data }) => data);
   }
 
   search(type: RYMSearchType, query: string): EitherAsync<Error, string> {
